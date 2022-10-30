@@ -1,0 +1,20 @@
+<div class="container">
+    <div *ngIf="car">
+        <h2> {{ car.brand }} </h2>
+        <div>
+            <span>Brand:</span>
+            <input [(ngModel)]="car.brand" placeholder="Toyota"/>
+        </div>
+        <div>
+            <span>Type:</span> 
+            <input [(ngModel)]="car.type" placeholder="Sedan"/>
+        </div>
+        <div>
+            <span>Color:</span>
+            <input [(ngModel)]="car.color" placeholder="Red"/>
+        </div>
+        <a mat-button (click)="createCar(car)" *ngIf="!car.id" >Create</a>
+        <a mat-button (click)="updateCar(car)" *ngIf="car.id" >Update</a>
+        <a mat-button (click)="onClose()"><mat-icon>close</mat-icon>Close</a>
+    </div>
+</div>

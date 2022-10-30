@@ -1,0 +1,28 @@
+<br>
+<h1 id="homeHeader">Add Descriptions for Multiple Cars</h1>
+<br>
+<div class="panel panel-default" id="CarPanel">
+  <div class="panel-heading"><h2>Cars List</h2></div>
+  <div class="panel-body">
+    <div class ="container">
+      <table class="table">
+        <thead>
+          <th>Brand </th>
+          <th>Type </th>
+          <th>Color </th>
+        </thead>      
+      <tbody>
+        <tr *ngFor="let x of car">
+            <td>{{ x.brand }}</td>
+            <td>{{ x.type }}</td>
+            <td>{{ x.color }}</td>
+            <td><a mat-raised-button color="primary" (click)="onClickEditButton(x)">Edit</a></td>
+            <td><a mat-raised-button color="warn" (click)="deleteCar(x)">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <a mat-raised-button color="primary" (click)="onClickAddButton()"><mat-icon>add</mat-icon>Add New Car</a>
+</div>
+<app-addcar [car]="carEdit" (carsNewList)="updateCarList($event)"></app-addcar>
